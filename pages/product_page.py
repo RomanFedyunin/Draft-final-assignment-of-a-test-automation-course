@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators, BasketPageLocators
+from .locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
 import math
 
@@ -46,7 +46,3 @@ class ProductPage(BasePage):
     def should_be_alert_product_disappeared(self):
         assert self.is_disappeared(
             *ProductPageLocators.ALERT_INNER_PRODUCT), "Алерт о добавлении товара не исчезает"
-
-    def check_bascket(self):
-        assert self.is_not_element_present(
-            *BasketPageLocators.BASKET_ITEM), "В корзине есть товар, который мы не добавляли"

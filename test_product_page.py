@@ -1,8 +1,7 @@
 from pages.product_page import ProductPage
-from pages.locators import ProductPageLocators
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
-from pages.locators import BasketPageLocators
+from pages.basket_page import BasketPage
 import pytest
 import time
 
@@ -44,11 +43,10 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
 
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"
-    page = ProductPage(browser, link)
+    page = BasketPage(browser, link)
     page.open()
     page.go_to_basket_page()
     page.check_bascket()
-    page = MainPage(browser, link)
     page.check_basket_is_empty()
 
 
